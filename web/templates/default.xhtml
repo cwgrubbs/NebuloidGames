@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<f:metadata>
+    <!-- Load msg bundle -->
+    <f:loadBundle basename="com.cwg.msg.messages" var="msg" />
+</f:metadata>
+
+<f:view transient="false">
+    <h:head>
+        <title><h:outputText value="#{title}" /></title>
+        <h:outputStylesheet library="default" name="css/default.css" />
+    </h:head>
+
+    <h:body>
+        <h:form id="main">
+            <div id="page-left-border"></div>
+            <div id="page-right-border"></div>
+            <div id="page">
+                <a href="home">
+                <div id="header-container">
+                    <div id="header">
+                        <ui:insert name="header" >
+                            <ui:include src="/templates/common/commonHeader.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+                </a>
+                <div id="messages-container">
+                    <div id="messages">
+                        <ui:insert name="messages" >
+                            <ui:include src="/templates/common/commonMessages.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+                <div id="content-container">
+                    <div id="content">
+                        <ui:insert name="content" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
+                    </div>
+                    <div id="sidebar">
+                        <ui:insert name="sidebar" >
+                            <ui:include src="/templates/common/commonSidebar.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+
+                <div id="footer-container">
+                    <div id="footer">
+                        <ui:insert name="footer" >
+                            <ui:include src="/templates/common/commonFooter.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+
+</f:view>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+       <!-- Load annotated JSF backing beans -->
+       <context:component-scan base-package="com.cwg.backing"/>
+       <!--Add support for view scope to spring; from primefaces blog: http://cagataycivici.wordpress.com/2010/02/17/port-jsf-2-0s-viewscope-to-spring-3-0/ -->
+       <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+              <property name="scopes">
+                     <map>
+                            <entry key="view">
+                                   <bean class="com.cwg.utils.ViewScope" />
+                            </entry>
+                     </map>
+              </property>
+       </bean>
+
+</beans>

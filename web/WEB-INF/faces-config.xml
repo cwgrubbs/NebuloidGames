@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+
+        <!-- Let Spring manage our beans for us -->
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+
+    </application>
+
+    <faces-config-extension>
+        <view-pool-mapping>
+            <url-pattern>/*</url-pattern>
+            <parameter>
+                <name>org.apache.myfaces.VIEW_POOL_MAX_POOL_SIZE</name>
+                <value>1000</value>
+            </parameter>
+        </view-pool-mapping>
+    </faces-config-extension>
+</faces-config>
